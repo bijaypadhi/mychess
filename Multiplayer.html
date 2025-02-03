@@ -1,22 +1,24 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Multiplayer Chess</title>
   <link rel="stylesheet" href="./stylem.css">
-
+  <link rel="icon" href="data:;base64,="> 
 </head>
 <body>
-<div class="navbar">
-        <img src="images/logo.png" class="logo">
-		<h2 aline="center"> Multiplayer Chess </h2>
-        <nav>
-            <ul>
-                <li><a href="index.html">HOME</a></li>
-            </ul>
-        </nav>
-        </div>
-<div id="game">
+  
+  <div class="navbar">
+    <img src="images/logo.png" class="logo">
+    <h2 align="center">Multiplayer Chess</h2>
+    <nav>
+      <ul>
+        <li><a href="index.html">HOME</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <div id="game" data-togetherjs>
     <div class='cellprefix'>8</div>
     <div class='gamecell' id='1_8'></div>
     <div class='gamecell grey' id='2_8'></div>
@@ -98,11 +100,38 @@
     <div class='cellprefix'>f</div>
     <div class='cellprefix'>g</div>
     <div class='cellprefix'>h</div><br>
-    <div id='turn'>It's Whites Turn!</div>
+    <div id='turn'  data-togetherjs >It's Whites Turn!</div>
   </div>
-<!-- partial -->
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
-  <script  src="./scriptm.js"></script>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="./scriptm.js"></script>
+  
+
+  <script>
+  var TogetherJSConfig = {
+    // ENABLE CURSOR FEATURES
+    dontShowClicks: false,
+    cloneClicks: true,
+    ignoreMessages: [], // Clear ignored messages to allow cursor updates
+    enableElementClicks: true,
+
+    // WEBRTC CONFIG (REQUIRED FOR CURSORS)
+    disableWebRTC: false,
+        // ESSENTIAL SETTINGS
+    hubBase: "https://sprinkle-lizard-peripheral.glitch.me/",
+     // or "tjs_madlibs" depending on your project
+    autoStart: true,  // Set to true if you want auto-start behavior
+    suppressJoinConfirmation: true,
+    disableCursor: false,  // Ensure cursor feature is enabled
+
+    // Custom Room Prefix and Limits (if relevant for your setup)
+    findRoom: {
+        prefix: "togetherjsmadlibs",
+        max: 5
+    }
+};
+
+  </script>
+<script src="./togetherjs-min.js"></script>
 </body>
 </html>
